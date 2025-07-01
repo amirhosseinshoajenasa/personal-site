@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سایت شخصی من | My Personal Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 transition-all">
+
+  <!-- Language Switcher -->
+  <div class="p-4 text-center">
+    <button onclick="switchLang('fa')" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded">فارسی</button>
+    <button onclick="switchLang('en')" class="mx-2 px-4 py-2 bg-green-500 text-white rounded">English</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-4" id="content">
+
+    <h1 class="text-3xl font-bold mb-4" data-fa="سلام، من امیر هستم" data-en="Hello, I'm Amir"></h1>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2" data-fa="درباره من" data-en="About Me"></h2>
+      <p data-fa="من یک توسعه‌دهنده وب با تجربه هستم که عاشق طراحی و برنامه‌نویسی هستم."
+         data-en="I’m an experienced web developer who loves design and coding."></p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2" data-fa="مهارت‌ها" data-en="Skills"></h2>
+      <ul class="list-disc ps-5">
+        <li data-fa="طراحی واکنش‌گرا" data-en="Responsive Design"></li>
+        <li data-fa="جاوااسکریپت و HTML/CSS" data-en="JavaScript and HTML/CSS"></li>
+        <li data-fa="Tailwind و React" data-en="Tailwind & React"></li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2" data-fa="پروژه‌ها" data-en="Projects"></h2>
+      <p data-fa="در حال حاضر روی چند پروژه شخصی و فریلنسری کار می‌کنم."
+         data-en="Currently working on personal and freelance projects."></p>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-2" data-fa="تماس با من" data-en="Contact Me"></h2>
+      <p data-fa="ایمیل: example@email.com" data-en="Email: example@email.com"></p>
+    </section>
+
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      const dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = dir;
+
+      document.querySelectorAll('[data-fa]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    }
+
+    // پیش‌فرض: فارسی
+    switchLang('fa');
+  </script>
+
+</body>
+</html>
